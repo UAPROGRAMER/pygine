@@ -4,9 +4,9 @@
 
 This module conteins a number of tools to help create your game on a pygame. Pygine uses classes to create objects that can interact with each other. <br/>
 In module all elements divided to 3 groups:
-* [Types](types)
-* [Nodes](nodes)
-* [Engine](engine)
+* [Types](##types)
+* [Nodes](##nodes)
+* [Engine](##engine)
 
 ## Types
 

@@ -25,4 +25,20 @@ List of default Nodes:
 
 ## Engine
 
-Engine is a heart of your program. To create a game you first create an Engine and then start a mainloop function.
+Engine is a heart of your program. To create a game you first create an Engine and then start a mainloop function. <br/>
+Engine includes this functions:
+* init
+* mainloop
+* draw_fps
+
+### Init
+Intializes Engine and pygame.
+
+### Mainloop
+Mainloop is a function that runs a loop until game is closed. This function do all work at processing and drawing Nodes. <br/>
+Mainloop runs tasks in this sequence:
+* Cheking events (like exit)
+* Updating Keys
+* Processing Nodes
+* Drawing everything
+* Updating display

@@ -23,18 +23,56 @@ Nodes is a building blocks for your game. This classes can be extended for your 
 List of default Nodes:
 * Node
 
+### Node():
+
+Basic Node.
+
+### Variables:
+
+#### cordinates:Cordinates = Cordinates(0,0)
+
+Nodes position.
+
+#### paused:bool = True
+
+Is node paused.
+
+#### visible:bool = True
+
+Is node paused.
+
+#### nodetype:str = "node"
+
+String that shows the type of the Node.
+
+### Functions:
+
+#### init(self, cordinates:Cordinates, paused:bool = True, visible:bool = True) -> None:
+
+self.cordinates = cordinates
+self.paused = paused
+self.visible = visible
+
+#### process(self, nodes, keys:Keys):
+
+pass
+
+#### draw(self, display):
+
+pygame.draw.circle(display, (0,0,0), self.cordinates.tuple(), 2)
+
 ## Engine
 
 Engine is a heart of your program. To create a game you first create an Engine and then start a mainloop function. <br/>
-Engine includes this functions:
-* init
-* mainloop
-* draw_fps
 
-### Init
+### Functions:
+
+#### init(self, displaySize:tuple = (0,0), fps:int = 60, title:str = "Pygine", bgcolor:pygame.Color = (255, 255, 255), nodes:list = [], debugtools:list = [], bgimage:str = None, icon:str = None, fullscreen:bool = False) -> None:
+
 Intializes Engine and pygame.
 
-### Mainloop
+#### mainloop(self) -> None:
+
 Mainloop is a function that runs a loop until game is closed. This function do all work at processing and drawing Nodes. <br/>
 Mainloop runs tasks in this sequence:
 * Cheking events (like exit)
@@ -42,3 +80,7 @@ Mainloop runs tasks in this sequence:
 * Processing Nodes
 * Drawing everything
 * Updating display
+
+#### draw_fps(self) -> None:
+
+Only for debug.

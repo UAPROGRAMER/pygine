@@ -17,6 +17,31 @@ Types contains:
 * Keys
 * Debugtools
 
+### Cordinates():
+
+Type that used for cordinates of an object.
+
+#### Variables:
+
+##### x:float = 0
+
+##### y:float = 0
+
+#### Functions:
+
+##### init(self, x:float, y:float) -> None:
+
+self.x, self.y = x, y
+
+##### tuple(self) -> tuple:
+
+return (self.x, self.y)
+
+##### move(self, vector:Vector) -> None:
+
+self.x += vector.x
+self.y += vector.y
+
 ## Nodes
 
 Nodes is a building blocks for your game. This classes can be extended for your needs or you can just use default Nodes. <br/>
@@ -27,37 +52,29 @@ List of default Nodes:
 
 Basic Node.
 
-### Variables:
+#### Variables:
 
-#### cordinates:Cordinates = Cordinates(0,0)
+##### cordinates:Cordinates = Cordinates(0,0)
 
-Nodes position.
+##### paused:bool = True
 
-#### paused:bool = True
+##### visible:bool = True
 
-Is node paused.
+##### nodetype:str = "node"
 
-#### visible:bool = True
+#### Functions:
 
-Is node paused.
-
-#### nodetype:str = "node"
-
-String that shows the type of the Node.
-
-### Functions:
-
-#### init(self, cordinates:Cordinates, paused:bool = True, visible:bool = True) -> None:
+##### init(self, cordinates:Cordinates, paused:bool = True, visible:bool = True) -> None:
 
 self.cordinates = cordinates
 self.paused = paused
 self.visible = visible
 
-#### process(self, nodes, keys:Keys) -> None:
+##### process(self, nodes, keys:Keys) -> None:
 
 pass
 
-#### draw(self, display) -> None:
+##### draw(self, display) -> None:
 
 pygame.draw.circle(display, (0,0,0), self.cordinates.tuple(), 2)
 

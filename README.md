@@ -21,7 +21,7 @@ Types contains:
 
 Nodes is a building blocks for your game. This classes can be extended for your needs or you can just use default Nodes. <br/>
 List of default Nodes:
-* Node
+* [Node](#node)
 
 ### Node():
 
@@ -53,11 +53,11 @@ self.cordinates = cordinates
 self.paused = paused
 self.visible = visible
 
-#### process(self, nodes, keys:Keys):
+#### process(self, nodes, keys:Keys) -> None:
 
 pass
 
-#### draw(self, display):
+#### draw(self, display) -> None:
 
 pygame.draw.circle(display, (0,0,0), self.cordinates.tuple(), 2)
 

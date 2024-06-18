@@ -1,4 +1,5 @@
 import pygame
+import sys
 from pygine.types.Debugtools import Debugtools
 from pygine.types.Keys import Keys
 
@@ -21,15 +22,17 @@ class Engine():
     def __init__(self, displaySize:tuple = (0,0), fps:int = 60, title:str = "Pygine",
                  bgcolor:pygame.Color = (255, 255, 255), nodes:list = [],
                  debugtools:list = [], bgimage:str = None, icon:str = None,
-                 fullscreen:bool = False) -> None:
+                 fullscreen:bool = False, resizable:bool = True) -> None:
         
         # initializing pygame
         pygame.init()
 
         self.displaySize = displaySize
-
+        
         if fullscreen:
             self.display = pygame.display.set_mode(self.displaySize, pygame.FULLSCREEN)
+        elif resizable:
+            self.display = pygame.display.set_mode(self.displaySize, pygame.RESIZABLE)
         else:
             self.display = pygame.display.set_mode(self.displaySize)
         
@@ -94,6 +97,7 @@ class Engine():
         
         # exiting pygame when done
         pygame.quit()
+        sys.exit(0)
     
     # func for drawing debug fps
     def draw_fps(self) -> None:

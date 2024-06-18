@@ -5,6 +5,7 @@ __pycache__/
 
 # my
 pygine_game_engine/
+PygineCraft/
 
 # C extensions
 *.so

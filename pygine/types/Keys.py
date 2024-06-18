@@ -7,7 +7,7 @@ class Keys():
     just_released:list = []     # list of just released keys
 
     # func for updating keys
-    def update(self, events):
+    def update(self, events) -> None:
 
         # clearing all vars
         self.pressed, self.just_pressed, self.just_released = [], [], []

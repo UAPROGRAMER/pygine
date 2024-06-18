@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# my
+pygine_game_engine/
+
 # C extensions
 *.so
 

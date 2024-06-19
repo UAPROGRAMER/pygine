@@ -4,6 +4,7 @@ from pygine.types.Cordinates import *
 from pygine.types.Debugtools import *
 from pygine.types.Keys import *
 from pygine.types.Anchor import *
+from pygine.types.RectSize import *
 print("Pygine/types imported.")
 
 # importing all *nodes*

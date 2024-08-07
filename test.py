@@ -1,12 +1,34 @@
-import pygine as pg
+import pygine
+import pygame
 
-displaySize = (500, 500)
-fps = 60
-title = "test"
-bgcolor = (255, 255, 255)
-nodes = [pg.Panel(pg.Cordinates(0,0), pg.RectSize(5, 5, pg.RectSizeModes.perc, pg.RectSizeModes.perc), anchor=pg.Anchor.center, offset=pg.Vector(-25,-25))]
-debugtools = [pg.Debugtools.fps]
+SCR_W = 150
+SCR_H = 150
 
-engine = pg.Engine(displaySize, fps, title, bgcolor, nodes,
-                   debugtools, None, None, False, True)
-engine.mainloop()
+FPS = 60
+
+pygame.init()
+
+display = pygame.display.set_mode((500, 500), pygame.RESIZABLE)
+
+screen = pygine.nodes.Screen(SCR_W, SCR_H, display, pygine.WHITE,
+                             [pygine.nodes.Node(50, 50, [pygine.nodes.Sprite(0,0,pygame.image.load("Test64.png"),0,1,1)])],
+                             True)
+
+keys = pygine.Keys()
+
+run = True
+while run:
+    screen.drawCall()
+    pygame.display.flip()
+
+    keys.update()
+    screen.processCall(keys)
+
+    if pygame.QUIT in keys.just_pressed:
+        run = False
+        break
+
+    pygine.CLOCK.tick(FPS)
+
+pygame.quit()
+raise SystemExit()

@@ -7,15 +7,18 @@ class Keys():
     just_released:list = []     # list of just released keys
 
     # func for updating keys
-    def update(self, events) -> None:
+    def update(self) -> None:
+        events = pygame.event.get()
 
         # clearing all vars
         self.pressed, self.just_pressed, self.just_released = [], [], []
 
         # going thru all events
         for event in events:
+            if event.type == pygame.QUIT:
+                self.just_pressed.append(pygame.QUIT)
 
-            if event.type == pygame.KEYDOWN:    # if just pressed
+            elif event.type == pygame.KEYDOWN:    # if just pressed
                 self.just_pressed.append(event.key)
 
             elif event.type == pygame.KEYUP:    # if just released
